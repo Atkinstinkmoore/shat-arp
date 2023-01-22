@@ -24,6 +24,19 @@ header {
   z-index: 2;
 }
 
+.logout {
+  background: #fff;
+  color: var(--darkgrey);
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  line-height: 1;
+}
+
+.logout:hover {
+  color: #fff;
+  background: #222;
+}
+
 body {
   background: var(--defaultgrey);
 }
@@ -45,15 +58,44 @@ body {
   padding: 2em;
   border-radius: 1em;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.login-form::before,
+.login-form::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 10px;
+  right: 10px;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+  height: 2rem;
+  bottom: 7px;
+}
+
+.login-form::before {
+  transform: rotate(-3deg);
+}
+.login-form::after {
+  transform: rotate(3deg);
 }
 .login-form > label {
   padding: 0 0.3em;
   font-weight: bold;
 }
-button {
+.btn {
   background: var(--defaultgrey);
-  border: 2px solid var(--darkblue);
   border-radius: 0.5em;
+  text-align: center;
+  padding: 0.5em 1em;
+  color: #fff;
+  line-height: 1;
+  border: 1px solid var(--darkblue);
+}
+.btn:hover {
+  color: var(--darkgrey);
+  background: #fff;
+  font-weight: bold;
 }
 
 input {
@@ -128,11 +170,9 @@ input {
 }
 
 #chat-form > input {
-  width: 80%;
+  width: 100%;
 }
-#chat-form > button {
-  width: 20%;
-}
+
 .chat-messages {
   grid-column: 2 / 3;
   grid-row: 1/2;
